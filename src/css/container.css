@@ -41,9 +41,11 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    border: 1px solid #626aa5;
+    background-color: aliceblue;
     border-top: none;
     padding: 10px 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .block{
