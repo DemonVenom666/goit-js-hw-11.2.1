@@ -1,5 +1,7 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
 
 import refs from "./js/refs";
 const { form, gallery, loader } = refs;
@@ -17,6 +19,15 @@ function onSearch(evt) {
     loader.style.display = 'block';
 
     const { query } = evt.currentTarget.elements;
+
+
+    if (query.value === '') {
+        return iziToast.info({
+            title: 'Hello',
+            message: 'Please enter search text!',
+        }),
+        loader.style.display = 'none';
+    }
 
     getSearch(query.value.split(' ').join('+'))
         .then(data => {
