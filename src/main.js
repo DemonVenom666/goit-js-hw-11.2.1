@@ -16,6 +16,7 @@ form.addEventListener('submit', onSearch);
 function onSearch(evt) {
     evt.preventDefault()
     gallery.innerHTML = '';
+    
     loader.style.display = 'block';
 
     const { query } = evt.currentTarget.elements;
