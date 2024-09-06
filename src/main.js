@@ -21,8 +21,7 @@ function onSearch(evt) {
 
     const { query } = evt.currentTarget.elements;
 
-
-    if (query.value === '') {
+    if (query.value.trim() === '') {
         return iziToast.info({
             title: 'Hello',
             message: 'Please enter search text!',
@@ -30,7 +29,7 @@ function onSearch(evt) {
         loader.style.display = 'none';
     }
 
-    getSearch(query.value.split(' ').join('+'))
+    getSearch(query.value.split(' ').join('+').trim())
         .then(data => {
             gallery.innerHTML = createMarkup(data.hits);
             const refreshPage = new SimpleLightbox('.gallery a', {
